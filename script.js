@@ -1,8 +1,9 @@
-const book = {
-    title: 'Book 1',
-    author: 'Bernard'
-}
+const books = []
 
-const books = [
-    book
-]
+function addBook(title,author) {
+    const book = {
+        title: title,
+        author: author
+    }
+    books.push(book);
+}
