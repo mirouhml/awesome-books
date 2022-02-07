@@ -34,3 +34,10 @@ function displayBooks() {
 }
 
 displayBooks();
+
+const button = document.getElementById('add');
+
+button.addEventListener('click', () => {
+    addBook('title3', 'author3');
+    displayBooks();
+});
