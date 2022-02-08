@@ -54,10 +54,8 @@ function displayBooks() {
   booksContainer.innerHTML = '';
   for (let i = 0; i < booksList.length; i += 1) {
     const book = document.createElement('li');
-    book.innerHTML = `<h2>${booksList[i].title}</h2>
-                        <h3>${booksList[i].author}</h3>
-                        <button id="book${i}" type="button">Remove</button>
-                        <hr>`;
+    book.innerHTML = `<h3 class="book">"${booksList[i].title}" by ${booksList[i].author}</h3>
+                      <button id="book${i}" type="button">Remove</button>`;
     booksContainer.appendChild(book);
     document.getElementById(`book${i}`).addEventListener('click', () => {
       books.remove(i);
