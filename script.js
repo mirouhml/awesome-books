@@ -70,15 +70,13 @@ button.addEventListener('click', () => {
   message.textContent = '';
   if (title.value === '' || author.value === '') {
     message.textContent = 'Please fill both the title and the author before adding.';
+  } else if (!books.search(title.value, author.value)) {
+    books.add(title.value, author.value);
+    displayBooks();
+    title.value = '';
+    author.value = '';
   } else {
-    if (!books.search(title.value, author.value)) {
-      books.add(title.value, author.value);
-      displayBooks();
-      title.value = '';
-      author.value = '';
-    } else {
-      const message = document.getElementById('error-message');
-      message.textContent = 'The book has already been added.';
-    }
+    const message = document.getElementById('error-message');
+    message.textContent = 'The book has already been added.';
   }
 });
