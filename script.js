@@ -22,8 +22,8 @@ function addBook(bookTitle, bookAuthor) {
   populateStorage(books);
 }
 
-function removeBook(title) {
-  books = books.filter((book) => book.title !== title);
+function removeBook(index) {
+  books.splice(index, 1);
   populateStorage(books);
 }
 
@@ -40,9 +40,8 @@ function displayBooks() {
                         <button id="book${i}" type="button">Remove</button>
                         <hr>`;
     booksContainer.appendChild(book);
-    const { title } = books[i];
     document.getElementById(`book${i}`).addEventListener('click', () => {
-      removeBook(title);
+      removeBook(i);
       displayBooks();
     });
   }
