@@ -1,47 +1,68 @@
-let books = [
-  {
-    title: 'book1',
-    author: 'author1',
-  },
-  {
-    title: 'book2',
-    author: 'author2',
-  },
-];
+class Book {
+  constructor() {
+    if (localStorage.getItem('books')) {
+      this.list = JSON.parse(localStorage.getItem('books'));
+    } else { this.list = []; }
+  }
 
-function populateStorage(booksList) {
-  localStorage.setItem('books', JSON.stringify(booksList));
+  populateStorage() {
+    localStorage.setItem('books', JSON.stringify(this.list));
+  }
+
+  add(bookTitle, bookAuthor) {
+    const book = {
+      title: bookTitle,
+      author: bookAuthor,
+    };
+    if (!this.search(bookTitle,bookAuthor)){
+      this.list.push(book);
+      this.populateStorage();
+    } else {
+      const message = document.getElementById('error-message');
+      message.textContent = 'The book has already been added.'
+    }
+  }
+
+  remove(index) {
+    this.list.splice(index, 1);
+    this.populateStorage();
+  }
+
+  search(title, author) {
+    const book = this.list.filter((book) => book.title === title && book.author === author);
+    console.log(book);
+    if (book.length > 0)
+      return true;
+    else  return false;
+  }
+
+  refresh() {
+    if (localStorage.getItem('books')) {
+      this.list = JSON.parse(localStorage.getItem('books'));
+    }
+  }
+
+  getList() {
+    return this.list;
+  }
 }
 
-function addBook(bookTitle, bookAuthor) {
-  const book = {
-    title: bookTitle,
-    author: bookAuthor,
-  };
-  books.push(book);
-  populateStorage(books);
-}
-
-function removeBook(index) {
-  books.splice(index, 1);
-  populateStorage(books);
-}
+const books = new Book();
 
 function displayBooks() {
   const booksContainer = document.getElementById('books-list');
-  if (localStorage.getItem('books')) {
-    books = JSON.parse(localStorage.getItem('books'));
-  }
+  books.refresh();
+  const booksList = books.getList();
   booksContainer.innerHTML = '';
-  for (let i = 0; i < books.length; i += 1) {
+  for (let i = 0; i < booksList.length; i += 1) {
     const book = document.createElement('li');
-    book.innerHTML = `<h2>${books[i].title}</h2>
-                        <h3>${books[i].author}</h3>
+    book.innerHTML = `<h2>${booksList[i].title}</h2>
+                        <h3>${booksList[i].author}</h3>
                         <button id="book${i}" type="button">Remove</button>
                         <hr>`;
     booksContainer.appendChild(book);
     document.getElementById(`book${i}`).addEventListener('click', () => {
-      removeBook(i);
+      books.remove(i);
       displayBooks();
     });
   }
@@ -54,6 +75,13 @@ const button = document.getElementById('add');
 button.addEventListener('click', () => {
   const title = document.getElementById('title');
   const author = document.getElementById('author');
-  addBook(title.value, author.value);
-  displayBooks();
+
+  if (title.value === '' || author.value === ''){
+    const message = document.getElementById('error-message');
+    message.textContent = 'Please fill both the title and the author before adding.'
+  } 
+  else {
+    books.add(title.value, author.value);
+    displayBooks();
+  }
 });
