@@ -51,6 +51,13 @@ body {
   background-color: #ddd;
 }
 
+.books-section hr {
+  border: 2px solid black;
+  border-top: 0;
+  margin: 20px auto;
+  width: 20%;
+}
+
 .book {
   flex-grow: 1;
   font-size: 0.9rem;
@@ -74,19 +81,12 @@ h1 {
 
 input {
   border: 3px solid black;
+  padding: 5px;
 }
 
 h2 {
   text-align: center;
   justify-content: center;
-}
-
-h2::before {
-  content: '';
-  margin-top: 10px;
-  height: 2px;
-  background-color: #212529;
-  width: 120px;
 }
 
 ::-webkit-input-placeholder {
