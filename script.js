@@ -23,7 +23,7 @@ function addBook(bookTitle, bookAuthor) {
 }
 
 function removeBook(index) {
-  books.splice(index,1);
+  books.splice(index, 1);
   populateStorage(books);
 }
 
