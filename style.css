@@ -103,3 +103,12 @@ h2 {
   color: black;
   font-weight: 600;
 }
+
+small {
+  color: red;
+}
+
+input[type=text] {
+  color: black;
+  font-weight: 600;
+}
