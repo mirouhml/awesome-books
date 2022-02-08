@@ -14,13 +14,8 @@ class Book {
       title: bookTitle,
       author: bookAuthor,
     };
-    if (!this.search(bookTitle, bookAuthor)) {
-      this.list.push(book);
-      this.populateStorage();
-    } else {
-      const message = document.getElementById('error-message');
-      message.textContent = 'The book has already been added.';
-    }
+    this.list.push(book);
+    this.populateStorage();
   }
 
   remove(index) {
@@ -71,14 +66,19 @@ const button = document.getElementById('add');
 button.addEventListener('click', () => {
   const title = document.getElementById('title');
   const author = document.getElementById('author');
-
+  const message = document.getElementById('error-message');
+  message.textContent = '';
   if (title.value === '' || author.value === '') {
-    const message = document.getElementById('error-message');
     message.textContent = 'Please fill both the title and the author before adding.';
   } else {
-    books.add(title.value, author.value);
-    displayBooks();
-    title.value = '';
-    author.value = '';
+    if (!books.search(title.value, author.value)) {
+      books.add(title.value, author.value);
+      displayBooks();
+      title.value = '';
+      author.value = '';
+    } else {
+      const message = document.getElementById('error-message');
+      message.textContent = 'The book has already been added.';
+    }
   }
 });
