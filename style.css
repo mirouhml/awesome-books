@@ -1,16 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #212529;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
 .add-book-section {
   display: flex;
   flex-direction: column;
-  width: 20%;
-  gap: 20px;
+  gap: 5px;
+  font-size: 1rem;
+  width: 60%;
+  font-weight: bold;
+  justify-content: center;
+  justify-items: center;
+  margin: auto;
+}
+
+.button-div {
+  display: flex;
+  justify-content: end;
 }
 
 .books-section ul {
   list-style-type: none;
-  margin-left: 0;
-  padding-left: 0;
+  padding: 0;
+  border: 3px solid black;
+  margin: 10px;
 }
 
-.books-section button {
+.books-section li {
+  padding: 5px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.books-section li:nth-child(odd) {
+  background-color: #ddd;
+}
+
+.books-section hr {
+  border: 0;
+  border-top: 2px solid black;
+  margin: 20px auto;
+  width: 20%;
+}
+
+.book {
+  flex-grow: 1;
+  font-size: 0.9rem;
+}
+
+button {
   width: fit-content;
+  border-radius: 2px;
+  padding: 3px;
+  border: 3px solid black;
+  box-shadow: 3px 3px black;
+  justify-self: flex-end;
+}
+
+h1 {
+  font-size: 1.5em;
+  font-weight: bold;
+  justify-content: center;
+  text-align: center;
+}
+
+input {
+  border: 3px solid black;
+  padding: 5px;
+}
+
+h2 {
+  text-align: center;
+  justify-content: center;
+}
+
+::-webkit-input-placeholder {
+  color: black;
+  font-weight: 600;
+}
+
+:-moz-placeholder {
+  color: black;
+  font-weight: 600;
+}
+
+:-ms-input-placeholder {
+  color: black;
+  font-weight: 600;
 }
