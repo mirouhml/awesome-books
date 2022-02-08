@@ -78,5 +78,7 @@ button.addEventListener('click', () => {
   } else {
     books.add(title.value, author.value);
     displayBooks();
+    title.value = '';
+    author.value = '';
   }
 });
