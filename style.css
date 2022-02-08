@@ -52,8 +52,8 @@ body {
 }
 
 .books-section hr {
-  border: 2px solid black;
-  border-top: 0;
+  border: 0;
+  border-top: 2px solid black;
   margin: 20px auto;
   width: 20%;
 }
