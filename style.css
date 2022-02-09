@@ -169,11 +169,9 @@ input[type=text] {
 
 .copyright {
   border: 3px solid black;
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  width: 97%;
-  margin: 10px;
+  display: block;
+  width: 99%;
+  margin: 0 auto;
 }
 
 .copyright h2 {
