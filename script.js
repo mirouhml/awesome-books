@@ -24,7 +24,8 @@ class Book {
   }
 
   search(title, author) {
-    const book = this.list.filter((book) => book.title === title && book.author === author);
+    const book = this.list.filter((book) => book.title.toLowerCase() === title.toLowerCase()
+                                  && book.author.toLowerCase() === author.toLowerCase());
     if (book.length > 0) return true;
     return false;
   }
@@ -75,8 +76,38 @@ button.addEventListener('click', () => {
     displayBooks();
     title.value = '';
     author.value = '';
+    message.textContent = 'The book has been added successfully.';
+    message.style.color = 'green';
   } else {
     const message = document.getElementById('error-message');
     message.textContent = 'The book has already been added.';
   }
+  setInterval(() => { message.textContent = ' '; }, 5000);
 });
+
+const booksSection = document.getElementById('books');
+const addSection = document.getElementById('add-book');
+const contactSection = document.getElementById('contact');
+document.getElementById('menu-list').addEventListener('click', () => {
+  booksSection.style.display = 'flex';
+  addSection.style.display = 'none';
+  contactSection.style.display = 'none';
+});
+document.getElementById('menu-add-book').addEventListener('click', () => {
+  booksSection.style.display = 'none';
+  addSection.style.display = 'flex';
+  contactSection.style.display = 'none';
+});
+document.getElementById('menu-contact').addEventListener('click', () => {
+  booksSection.style.display = 'none';
+  addSection.style.display = 'none';
+  contactSection.style.display = 'flex';
+});
+
+const dateContainer = document.getElementById('date-time');
+function myTimer() {
+  const today = new Date();
+  dateContainer.textContent = `${today.toDateString()}, ${today.toLocaleTimeString()}`;
+}
+myTimer();
+setInterval(() => { myTimer(); }, 1000);
