@@ -4,7 +4,7 @@
 
 > This an implementation of a library website.
 
-![screenshot](./src/screenshot3.png)
+![screenshot](./src/Screenshot3.png)
 
 ## Live Demo
 
