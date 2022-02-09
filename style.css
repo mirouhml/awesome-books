@@ -5,7 +5,6 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  list-style: none;
 }
 
 html {
@@ -23,7 +22,7 @@ body {
 }
 
 .add-book-section {
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 5px;
   font-size: 1rem;
@@ -37,6 +36,10 @@ body {
 .button-div {
   display: flex;
   justify-content: end;
+}
+
+.books-section {
+  display: none;
 }
 
 .books-section ul {
@@ -129,6 +132,7 @@ input[type=text] {
   display: flex;
   justify-content: center;
   align-items: center;
+  list-style: none;
 }
 
 .menu hr {
@@ -161,4 +165,11 @@ input[type=text] {
   text-align: left;
   margin-left: 20px;
   flex-grow: 1;
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
