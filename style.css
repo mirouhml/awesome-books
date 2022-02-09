@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 * {
@@ -7,6 +8,10 @@
   list-style: none;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
@@ -14,6 +19,7 @@ body {
   height: 100%;
   width: 100%;
   position: relative;
+  padding: 10px;
 }
 
 .add-book-section {
@@ -72,7 +78,7 @@ button {
   justify-self: flex-end;
 }
 
-h1 {
+h2 {
   font-size: 1.5em;
   font-weight: bold;
   justify-content: center;
@@ -82,11 +88,6 @@ h1 {
 input {
   border: 3px solid black;
   padding: 5px;
-}
-
-h2 {
-  text-align: center;
-  justify-content: center;
 }
 
 ::-webkit-input-placeholder {
@@ -111,4 +112,53 @@ small {
 input[type=text] {
   color: black;
   font-weight: 600;
+}
+
+.menu {
+  display: flex;
+  padding: 0 20px;
+  border: 3px solid black;
+  margin: 10px;
+}
+
+.menu h1 {
+  flex-grow: 1;
+}
+
+.menu ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu hr {
+  border: 0;
+  border-right: 3px solid black;
+  height: 30px;
+  margin: 3px 10px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.menu a:hover {
+  color: #486b8c;
+}
+
+.copyright {
+  border: 3px solid black;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  width: 97%;
+  margin: 10px;
+}
+
+.copyright h2 {
+  text-align: left;
+  margin-left: 20px;
+  flex-grow: 1;
 }
