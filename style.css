@@ -34,7 +34,9 @@ body {
   flex-direction: column;
   gap: 5px;
   font-size: 1rem;
-  width: 30%;
+  width: 100%;
+  min-width: 373px;
+  max-width: 470px;
 }
 
 .add-book-container h2 {
