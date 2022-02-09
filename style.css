@@ -82,7 +82,9 @@ input {
   padding: 0;
   border: 3px solid black;
   margin: 10px;
-  width: 100%;
+  width: 99%;
+  max-height: 450px;
+  overflow-y: scroll;
 }
 
 .books-section li {
